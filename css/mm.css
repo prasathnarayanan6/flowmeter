@@ -1,0 +1,14 @@
+@font-face {
+  font-family: 'myFirstFont';
+  src: url('./Josefin_Sans/static/JosefinSans-Medium.ttf');
+}
+body{
+  font-family: 'myFirstFont';
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333333;
+}
