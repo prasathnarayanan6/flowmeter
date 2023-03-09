@@ -177,8 +177,8 @@ overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
                             <div class="card-body">
                             <div class="media d-flex">
                                 <div class="media-body text-left">
-                                        <h3 class="danger" id="s1">-</h3>
-                                        <span style="color:#152238">Flow Count</span>
+                                        <h3 class="danger" id="s1">0</h3>
+                                        <span style="color:#152238">Flow</span>
                                 </div>
                                 <div class="ms-auto h1 pt-2">
                                     <i class="fa-solid fa-water" style="color:#152238"></i>
@@ -196,9 +196,8 @@ overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
                             <div class="card-body">
                             <div class="media d-flex">
                                 <div class="media-body text-left">
-                                        <h3 class="" id="blinkk">Open
-                                        </h3>
-                                        <span class="">Valve status</span>
+                                        <h3 class="" id="s3">0</h3>
+                                        <span class="">Valve</span>
                                 </div>
                                 <div class="ms-auto h1 pt-2">
                                      <i class="fa-solid fa-lock text-success"></i>
@@ -341,12 +340,13 @@ if(isset($_POST['set'])){
 <script>
          function startLiveUpdate(){
             const textViewCount = document.getElementById('s1');
+            const textViewCount1 = document.getElementById('s3');
             setInterval(function() {
                fetch('./data.php?id=1').then(function(response){
                   return response.json();
                }).then(function(sensors){
                   textViewCount.textContent = sensors.flow;
-                
+                  textViewCount1.textContent = sensors.state;
                 })
             }, 5000);
          }
@@ -357,12 +357,12 @@ if(isset($_POST['set'])){
 
 
          function startLiveUpdatee(){
-            const textViewCount = document.getElementById('s2');
+            const textViewCount2 = document.getElementById('s2');
             setInterval(function() {
                fetch('./fix.php').then(function(response){
                   return response.json();
                }).then(function(fix){
-                  textViewCount.textContent = fix.val;
+                  textViewCount2.textContent = fix.val;
                 
                 })
             }, 5000);
